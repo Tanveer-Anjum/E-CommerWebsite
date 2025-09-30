@@ -10,7 +10,7 @@ export default function Categories() {
   return (
     <section className="p-6">
       {/* Title */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center mt-12">
         Shop by Category
       </h2>
 

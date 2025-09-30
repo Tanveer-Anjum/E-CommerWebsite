@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "./Categories/ProductCard";
+import ProductCardSkeleton from "../components/ProductCardSkeleton"; // ✅ import skeleton
 
 // Import images from assets
 import iphone from "../assets/iphone.jpg";
 import samsung from "../assets/sumsang.jpg";
 import tshirt from "../assets/t-shite.jpg";
 import beauty from "../assets/beauty.jpg";
-import football from "../assets/f1.jpg";
+import football from "../assets/footbal.jpg";
 import trousers from "../assets/trosers.jpg";
 import cups from "../assets/cups.jpg";
 import airpods from "../assets/airpods.jpg";
@@ -25,9 +26,15 @@ const featuredProducts = [
 
 export default function FeaturedProducts() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  // Simulate API fetch
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // 2 sec fake delay
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleProductClick = (product) => {
-    // Navigate to ProductDetails page with product info
     navigate(`/product/${product.id}`, { state: { product } });
   };
 
@@ -37,9 +44,15 @@ export default function FeaturedProducts() {
         Featured Products
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {featuredProducts.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
+        {loading
+          ? Array(8).fill(0).map((_, i) => <ProductCardSkeleton key={i} />) // show skeletons
+          : featuredProducts.map((p) => (
+              <ProductCard
+                key={p.id}
+                product={p}
+                onClick={() => handleProductClick(p)}
+              />
+            ))}
       </div>
     </section>
   );

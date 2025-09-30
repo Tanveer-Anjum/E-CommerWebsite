@@ -1,7 +1,6 @@
-
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import ProductCardSkeleton from "../../components/ProductCardSkeleton"; // ✅ import skeleton
 import { useNavigate } from "react-router-dom";
 
 // Images from categories assets
@@ -25,20 +24,53 @@ const oldCategories = [
 
 export default function OldCategories() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  // Simulate fetch
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // 2s fake delay
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Old Categories</h2>
-      {/* Quick category tiles like Daraz (e.g., Phones, Shirts, Perfumes, Books) */}
+
+      {/* Quick category tiles like Daraz */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-        <button className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200" onClick={() => navigate("/old/phones")}>Old Phones</button>
-        <button className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200" onClick={() => navigate("/old/watches")}>Old Watches</button>
-        <button className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200" onClick={() => navigate("/old/cameras")}>Old Cameras</button>
-        <button className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200" onClick={() => navigate("/old/shirts")}>Old Shirts</button>
+        <button
+          className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200"
+          onClick={() => navigate("/old/phones")}
+        >
+          Old Phones
+        </button>
+        <button
+          className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200"
+          onClick={() => navigate("/old/watches")}
+        >
+          Old Watches
+        </button>
+        <button
+          className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200"
+          onClick={() => navigate("/old/cameras")}
+        >
+          Old Cameras
+        </button>
+        <button
+          className="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200"
+          onClick={() => navigate("/old/shirts")}
+        >
+          Old Shirts
+        </button>
       </div>
+
+      {/* Product list */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {oldCategories.map((item) => (
-          <ProductCard key={item.id} product={item} />
-        ))}
+        {loading
+          ? Array(8).fill(0).map((_, i) => <ProductCardSkeleton key={i} />) // skeletons
+          : oldCategories.map((item) => (
+              <ProductCard key={item.id} product={item} />
+            ))}
       </div>
     </div>
   );
