@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import banner1 from "../assets/banner11.jpg";
 import banner2 from "../assets/banner12.jpg";
-import banner3 from "../assets/banner.jpg";
-import side1 from "../assets/banner.jpg"; // small right-side banner
+import banner3 from "../assets/banner.webp";
+import side1 from "../assets/banner.webp"; // small right-side banner
 import side2 from "../assets/banner1.jpg"; // another small right-side banner
 
 

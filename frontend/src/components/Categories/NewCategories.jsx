@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 // Images from categories assets
 import newPerfum from "./assets/newperfum.jpg";
-import novel from "./assets/novel.jpg";
-import novel1 from "./assets/novel1.jpg";
+import novel from "./assets/novel.webp";
+import novel1 from "./assets/novel1.webp";
 // Existing images from global assets
-import airpodsImg from "../../assets/airpods.jpg";
-import earphoneImg from "../../assets/airphone.jpg";
-import shirtImg from "../../assets/t-shirtblack.jpg";
+import airpodsImg from "./assets/airpod2.webp";
+import earphoneImg from "../../assets/airphone.webp";
+import shirtImg from "./assets/shirt.jpg";
 import bottleImg from "../../assets/waterbottle.jpg";
 
 const newCategories = [

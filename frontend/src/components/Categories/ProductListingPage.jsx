@@ -7,19 +7,19 @@ import ProductCardSkeleton from "../../components/ProductCardSkeleton";
 // Importing images from categories/assets
 import old1 from "./assets/camera.jpg";
 import old2 from "./assets/camera1.jpg";
-import old3 from "./assets/oldperfum.jpg";
+import old3 from "./assets/oldperfum.webp";
 import new1 from "./assets/shirt.jpg";
-import new2 from "./assets/oldphone.jpg";
+import new2 from "./assets/oldphone.webp";
 import new3 from "./assets/camera2.jpg";
 import new4 from "./assets/shirt.jpg";
 import new5 from "./assets/oldshirts.jpg";
 import new6 from "./assets/phone1.jpg";
 import new7 from "./assets/phone2.jpg";
-import new8 from "./assets/watch1.jpg";
-import new9 from "./assets/watch2.jpg";
+import new8 from "./assets/watch1.webp";
+import new9 from "./assets/watch2.webp";
 import new10 from "./assets/laptop.jpg";
-import new11 from "./assets/labtop2.jpg";
-import new12 from "./assets/airpods.jpg"
+import new11 from "./assets/labtop2.webp";
+import new12 from "./assets/airpod2.webp"
 
 // Product data
 const allProducts = {

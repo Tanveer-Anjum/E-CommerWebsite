@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 
 // Images from categories assets
 import oldShirts from "./assets/oldshirts.jpg";
-import oldPhone from "./assets/oldphone.jpg";
-import oldTshirt from "./assets/oldtshirt.jpg";
-import oldPerfum from "./assets/oldperfum.jpg";
+import oldPhone from "./assets/oldphone.webp";
+import oldTshirt from "./assets/oldtshirt.webp";
+import oldPerfum from "./assets/oldperfum.webp";
 import oldPerfum1 from "./assets/oldperfum1.jpg";
-import novel from "./assets/novel.jpg";
-import novel1 from "./assets/novel1.jpg";
+import novel from "./assets/novel.webp";
+import novel1 from "./assets/novel1.webp";
 
 const oldCategories = [
   { id: 101, name: "Old Shirts", image: oldShirts, price: 1499 },

@@ -1,6 +1,6 @@
 // src/data/products.js
 import mobileImg from "../assets/e1.jpg";
-import samsungImg from "../assets/f1.jpg";
+import samsungImg from "../assets/f1.webp";
 import ipadImg from "../assets/h1.jpg";
 
 export const allProducts = [

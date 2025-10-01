@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-// Optional: import your product lists
-import { allProducts } from "../data/products"; // create a central product list
+
+
+import { allProducts } from "../data/products";
 import CheckoutModal from "../components/Checkout/CheckoutModal";
 
 const ProductDetails = () => {
+
   const location = useLocation();
-  const { id } = useParams(); // product ID from URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
-  // Try to get product from location.state
+
   const [product, setProduct] = useState(location.state?.product || null);
 
   useEffect(() => {
-    // If product is null (user typed URL manually), fetch from allProducts
+   
     if (!product) {
       const found = allProducts.find((p) => String(p.id) === id);
       if (found) setProduct(found);
-      else navigate("/"); // if not found, redirect home
+      else navigate("/"); 
     }
   }, [id, product, navigate]);
 
@@ -37,7 +39,7 @@ const ProductDetails = () => {
 
   if (!product) return <p className="text-center mt-20">Loading product...</p>;
 
-  // Rating rendering (full/half/empty stars)
+
   const numericRating = Number(product.rating ?? 0);
   const fullStars = Math.floor(numericRating);
   const hasHalf = numericRating - fullStars >= 0.5;

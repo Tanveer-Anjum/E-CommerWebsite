@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaSearch, FaUser, FaStore, FaHeadset } from "react-icons/fa";
+import logo from "./Logo/assets/logo1.png" // Adjust the path as necessary
 
 import { useCart } from "../context/CartContext";
 import { FaShoppingCart } from "react-icons/fa";
@@ -10,9 +11,13 @@ export default function Navbar() {
   return (
     <nav className="flex items-center justify-between bg-green-700 px-6 py-3 shadow-lg text-white">
       {/* Logo */}
-      <Link to="/" className="text-2xl font-bold">
-        Bazzario
-      </Link>
+    <Link to="/" className="flex items-center">
+  <img 
+    src={logo}      // path to your logo file
+    alt="Bazzario Logo" 
+    className="h-20 w-auto"  // Adjust height and width as needed
+  />
+</Link>
 
       {/* Search Bar */}
       <div className="flex items-center bg-white rounded-lg px-3 py-1 w-1/2">

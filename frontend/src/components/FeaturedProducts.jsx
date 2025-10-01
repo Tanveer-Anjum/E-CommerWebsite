@@ -4,14 +4,14 @@ import ProductCard from "./Categories/ProductCard";
 import ProductCardSkeleton from "../components/ProductCardSkeleton"; // ✅ import skeleton
 
 // Import images from assets
-import iphone from "../assets/iphone.jpg";
+import iphone from "../assets/iphone.webp";
 import samsung from "../assets/sumsang.jpg";
-import tshirt from "../assets/t-shite.jpg";
+import tshirt from "../assets/t-shite.webp";
 import beauty from "../assets/beauty.jpg";
 import football from "../assets/footbal.jpg";
-import trousers from "../assets/trosers.jpg";
-import cups from "../assets/cups.jpg";
-import airpods from "../assets/airpods.jpg";
+import trousers from "../assets/trosers.webp";
+import cups from "../assets/cups.webp";
+import airpods from "../assets/airpods.webp";
 
 const featuredProducts = [
   { id: 201, name: "Featured iPhone 14", price: 280000, image: iphone, brand:"Apple", colors:["Black","White"], rating:5, reviews: 320, description:"Latest iPhone 14" },
