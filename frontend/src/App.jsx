@@ -1,6 +1,5 @@
-
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast"; // ✅ import Toaster
 import Newsbar from "./components/Newsbar";
 import Navbar from "./components/Navbar";
 import SignIn from "./components/SignIn";
@@ -9,8 +8,8 @@ import CreateShop from "./components/CreateShop/CreateShop";
 import Support from "./components/Support/Support";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Cart from "./components/Cart";  // ✅ Import Cart Page
-import { CartProvider } from "./context/CartContext"; // ✅ Import Provider
+import Cart from "./components/Cart";
+import { CartProvider } from "./context/CartContext";
 import ProductDetails from "./pages/ProductDetails";
 import UserDashboard from "./pages/Dashboard/UserDashboard";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
@@ -27,6 +26,9 @@ function App() {
   return (
     <CartProvider>
       <Router>
+        {/* ✅ Add Toaster here */}
+        <Toaster position="top-right" reverseOrder={false} />
+
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col">
           <Newsbar />
           <Navbar />
@@ -34,16 +36,13 @@ function App() {
           {/* Main Content */}
           <main className="flex-grow">
             <Routes>
-              {/* Home */}
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/:categoryType/:categoryName" element={<ProductListingPage />} />
-  <Route path="/cart" element={<Cart />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/:categoryType/:categoryName" element={<ProductListingPage />} />
+              <Route path="/cart" element={<Cart />} />
 
-              {/* Sign In */}
+              {/* Auth */}
               <Route path="/signin" element={<SignIn />} />
-
-              {/* Sign Up */}
               <Route path="/signup" element={<Signup />} />
 
               {/* Create Shop */}
@@ -56,16 +55,14 @@ function App() {
               <Route path="/admin/signin" element={<AdminSignin />} />
               <Route path="/admin/signup" element={<AdminSignup />} />
 
-          {/* here is the dashboard */}
-           <Route path="/user/dashboard" element={<UserDashboard />} />
-            <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
+              {/* Dashboards */}
+              <Route path="/user/dashboard" element={<UserDashboard />} />
+              <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
               <Route path="/seller/dashboard/*" element={<SellerDashboard />} />
-
-
-
             </Routes>
           </main>
-<ChatWidget />
+
+          <ChatWidget />
           <Footer />
         </div>
       </Router>
